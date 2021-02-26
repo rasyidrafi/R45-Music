@@ -1,0 +1,146 @@
+* {
+    font-family: 'Quicksand', sans-serif;
+}
+
+/* Scroll 3 */
+
+.sc3::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+}
+
+.sc3::-webkit-scrollbar-track {
+    background-color: transparent;
+    border-radius: 10px;
+}
+
+.sc3::-webkit-scrollbar-thumb {
+    background-color: #61045F;
+    border-radius: 10px;
+}
+
+body {
+    background: linear-gradient(to right, #AA076B, #61045F);
+}
+
+.pemisah {
+    display: block;
+    border-top: 2px solid white;
+    margin: 0 auto;
+    width: 50%;
+}
+
+.judul {
+    display: block;
+    margin: 10px auto;
+    font-size: 10px;
+    font-weight: bold;
+    text-align: center;
+    color: white;
+}
+
+.poto {
+    display: block;
+    margin: 0 auto;
+    width: 300px;
+}
+
+.audio {
+    display: block;
+    margin: 0 auto;
+    width: 300px;
+    background-color: white;
+    outline: none;
+}
+
+.lirik {
+    display: block;
+    margin: 20px auto 10px;
+    font-size: 10px;
+    font-weight: bold;
+    text-align: center;
+    color: white;
+}
+
+.classLirik {
+    display: block;
+    margin: 0 auto 20px;
+    width: 300px;
+    height: 300px;
+    overflow-y: auto;
+    font-size: 10px;
+    text-align: center;
+    color: white;
+}
+
+.classCari {
+    display: block;
+    margin: 20px auto 10px;
+    width: 300px;
+    height: auto;
+    font-size: 10px;
+    text-align: center;
+    color: white;
+}
+
+#manual {
+    font-size: 10px;
+}
+
+#cariManual {
+    font-size: 10px;
+}
+
+@media (min-width: 630px) {
+    #manual {
+        font-size: 18px;
+    }
+    #cariManual {
+        font-size: 18px;
+    }
+    .judul {
+        display: block;
+        margin: 20px auto;
+        font-size: 20px;
+        text-align: center;
+        color: white;
+    }
+    .lirik {
+        display: block;
+        margin: 40px auto 20px;
+        font-size: 20px;
+        text-align: center;
+        color: white;
+    }
+    .classLirik {
+        display: block;
+        width: 600px;
+        height: 300px;
+        margin: 0 auto 40px;
+        overflow-y: auto;
+        font-size: 20px;
+        text-align: center;
+        color: white;
+    }
+    .classCari {
+        display: block;
+        margin: 40px auto 20px;
+        width: 600px;
+        height: auto;
+        font-size: 20px;
+        text-align: center;
+        color: white;
+    }
+    .poto {
+        display: block;
+        margin: 0 auto;
+        width: 600px;
+    }
+    .audio {
+        display: block;
+        margin: 0 auto;
+        width: 600px;
+        background-color: #F1F3F4;
+        outline: none;
+    }
+}

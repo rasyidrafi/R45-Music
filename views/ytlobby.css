@@ -1,0 +1,33 @@
+* {
+    font-family: 'Quicksand', sans-serif;
+}
+
+body {
+    background: linear-gradient(to right, #FF1F57, #8D18C3);
+}
+
+/* Scroll 3 */
+.sc3::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+}
+
+.sc3::-webkit-scrollbar-track {
+    background-color: transparent;
+    border-radius: 10px;
+}
+
+.sc3::-webkit-scrollbar-thumb {
+    background-color: #990B0B;
+    border-radius: 10px;
+}
+
+.customWidth {
+    width: 85%;
+}
+
+@media (min-width: 650px) {
+    .customWidth {
+        width: 50%;
+    }
+}
