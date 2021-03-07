@@ -1,9 +1,12 @@
 {
-  "name": "music-app",
-  "version": "1.0.0",
+  "homepage": "http://yuribenjamin.github.io/my-app",
+  "name": "R45-Music",
+  "version": "5.5.0",
   "description": "",
   "main": "index.js",
   "scripts": {
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build",
     "start": "node index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -18,5 +21,8 @@
     "yt-search": "^2.6.1",
     "ytdl-core": "^4.4.5",
     "ytpl": "^2.0.5"
+  },
+  "devDependencies": {
+    "gh-pages": "^3.1.0"
   }
 }
