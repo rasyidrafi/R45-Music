@@ -42,4 +42,4 @@ Pull requests are welcome. For major changes, please open an issue first to disc
 
 ## License
 
-[MIT](https://choosealicense.com/licenses/mit/)
+[MIT](https://github.com/rasyidrafi/R45-Music/blob/master/LICENSE)
