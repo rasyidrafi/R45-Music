@@ -3,7 +3,8 @@ Web Based Music Player that can play music from Youtube and Joox
 Menggunakan NodeJs dan beberapa framework untuk memutar musik dari youtube dan joox  
 
 ## Disclaimer
-Copyright Disclaimer under section 107 of the Copyright Act of 1976, allowance is made for "fair use" for purposes such as criticism, comment, news reporting, teaching, scholarship, education and research. Fair use is a use permitted by copyright statute that might otherwise be infringing.  
+*Copyright Disclaimer under section 107 of the Copyright Act of 1976, allowance is made for "fair use" for purposes such as criticism, comment, news reporting, teaching, scholarship, education and research. Fair use is a use permitted by copyright statute that might otherwise be infringing.*    
+
 Downloading content from YouTube is against the YouTube Policy. I made this project just for **EDUCATION** and **PERSONAL USE** only.
 
 ## Installation
