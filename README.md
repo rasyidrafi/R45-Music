@@ -27,7 +27,7 @@ npm start
 
 Open config.js to configure.
 
-## To DO
+## To Do
 
 - [ ] Re Design the Web
 - [ ] Simplify Code
