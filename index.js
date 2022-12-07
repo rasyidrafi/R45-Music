@@ -1,3 +1,4 @@
+require("dotenv").config();
 var express = require("express");
 var bodyParser = require("body-parser");
 var axios = require("axios");
@@ -6,6 +7,7 @@ const yts = require("yt-search");
 const ytlist = require("ytpl");
 
 const config = require("./config");
+const helper = require("./helper");
 
 var app = express();
 
@@ -29,7 +31,7 @@ app.get("/", async (req, res) => {
 });
 
 app.get("/yt", async (req, res) => {
-  if (req.query.url) {
+  async function runUrl() {
     const hasil = await ytdl.getInfo(req.query.url);
     const jsonnya = hasil.formats;
     let direct = "";
@@ -41,8 +43,19 @@ app.get("/yt", async (req, res) => {
         direct = jsonnya[i].url;
       }
     }
-    res.render("index.html", { direct: direct, title: title, thumb: thumb });
-  } else if (req.query.judul) {
+
+    const resLirik = await helper.searchLyrics(title);
+    const lyrics = resLirik ? encodeURIComponent(resLirik.resFetch) : "";
+
+    res.render("index.html", {
+      direct: direct,
+      title: title,
+      thumb: thumb,
+      lyrics,
+      id: resLirik ? resLirik.id : "",
+    });
+  }
+  async function runJudul() {
     yts(req.query.judul).then(async (result) => {
       let url = await result.all[0].url;
       const hasil = await ytdl.getInfo(url);
@@ -56,9 +69,19 @@ app.get("/yt", async (req, res) => {
           direct = jsonnya[i].url;
         }
       }
-      res.render("index.html", { direct: direct, title: title, thumb: thumb });
+
+      const resLirik = await helper.searchLyrics(req.query.judul);
+      const lyrics = resLirik ? encodeURIComponent(resLirik.resFetch) : "";
+      res.render("index.html", {
+        direct: direct,
+        title: title,
+        thumb: thumb,
+        lyrics,
+        id: resLirik ? resLirik.id : "",
+      });
     });
-  } else if (req.query.playlist) {
+  }
+  async function runPlaylist() {
     let awal = req.query.playlist;
     let link = awal.split("=")[1];
     ytlist(link).then(async (oi) => {
@@ -76,9 +99,19 @@ app.get("/yt", async (req, res) => {
           direct = jsonnya[i].url;
         }
       }
-      res.render("index.html", { direct: direct, title: title, thumb: thumb });
+
+      const resLirik = await helper.searchLyrics(title);
+      const lyrics = resLirik ? encodeURIComponent(resLirik.resFetch) : "";
+      res.render("index.html", {
+        direct: direct,
+        title: title,
+        thumb: thumb,
+        lyrics,
+        id: resLirik ? resLirik.id : "",
+      });
     });
-  } else {
+  }
+  async function runRandom() {
     let custom = "";
     let list = [
       "PLeCdlPO-XhWFzEVynMsmosfdRsIZXhZi0",
@@ -103,8 +136,48 @@ app.get("/yt", async (req, res) => {
           direct = jsonnya[i].url;
         }
       }
-      res.render("index.html", { direct: direct, title: title, thumb: thumb });
+
+      const resLirik = await helper.searchLyrics(title);
+      const lyrics = resLirik ? encodeURIComponent(resLirik.resFetch) : "";
+      res.render("index.html", {
+        direct: direct,
+        title: title,
+        thumb: thumb,
+        lyrics,
+        id: resLirik ? resLirik.id : ""
+      });
     });
+  }
+
+  if (req.query.input) {
+    if (helper.isValidHttpUrl(req.query.input)) {
+      req.query.url = req.query.input;
+      await runUrl();
+    } else {
+      req.query.judul = req.query.input;
+      await runJudul();
+    }
+  } else {
+    if (req.query.url) {
+      await runUrl();
+    } else if (req.query.judul) {
+      await runJudul();
+    } else if (req.query.playlist) {
+      await runPlaylist();
+    } else {
+      await runRandom();
+    }
+  }
+});
+
+app.get("/api/lirik", async (req, res) => {
+  if (req.query.q) {
+    const lyrics = await helper.searchLyrics(req.query.q);
+    res.json({
+      data: lyrics ? lyrics.resFetch : "",
+    });
+  } else {
+    res.sendStatus(400);
   }
 });
 

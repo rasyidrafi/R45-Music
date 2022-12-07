@@ -144,3 +144,25 @@ body {
         outline: none;
     }
 }
+
+.rg_embed.music {
+    flex-direction: column;
+    display: flex;
+    background-color: transparent;
+    color: wheat;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.rg_embed_header {
+    display: none;
+}
+
+.rg_embed_footer a, .custom-link{
+    color: wheat !important;
+    padding-top: 9px !important;
+    padding-bottom: 9px !important;
+    padding-left: 0px !important;
+    padding-right: 0px !important;
+}

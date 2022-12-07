@@ -20,87 +20,40 @@
   </head>
 
   <body>
-    <div
-      id="carouselExampleIndicators"
-      class="carousel slide"
-      data-bs-ride="carousel"
-    >
-      <div class="carousel-inner">
-        <div class="carousel-item active">
-          <div
-            class="card mx-auto"
-            style="
-              width: 330px;
-              height: 370px;
-              background-color: #323038;
-              border-color: #323038;
-            "
-          >
-            <div class="card-body sc3">
-              <img src="./youtube.svg" class="card-img-top" alt="Project01" />
-              <a
-                id="ytPlay"
-                class="btn"
-                style="
-                  display: block;
-                  margin: auto 0;
-                  background-color: #bb00ff;
-                  color: white;
-                "
-                href="yt"
-                role="button"
-              >
-                PLAY
-              </a>
+    <div class="d-flex align-items-center" style="height: 100vh;">
+      <div
+        class="card mx-auto"
+        style="
+          width: 330px;
+          height: auto;
+          background-color: #323038;
+          border-color: #323038;
+        "
+      >
+        <div class="card-body sc3">
+          <form action="yt" method="get">
+            <img src="./youtube.svg" class="card-img-top" alt="Project01" />
+            <div class="alert alert-primary py-2" >
+              Masukkan judul/url, jika tidak diisi maka akan memutar lagu acak
             </div>
-          </div>
-        </div>
-        <div class="carousel-item">
-          <div
-            class="card mx-auto"
-            style="
-              width: 330px;
-              height: 370px;
-              background-color: #323038;
-              border-color: #323038;
-            "
-          >
-            <div class="card-body sc3">
-              <img src="./joox.svg" class="card-img-top" alt="Project02" />
-              <a
-                class="btn"
-                style="
-                  display: block;
-                  margin: auto 0;
-                  background-color: #232323;
-                  color: white;
-                "
-                href="joox"
-                role="button"
-                >PLAY</a
-              >
-            </div>
-          </div>
+            <input type="text" class="form-control mb-3 text-center" placeholder="..." name="input">
+            <button
+              id="ytPlay"
+              class="btn w-100"
+              style="
+                display: block;
+                margin: auto 0;
+                background-color: #bb00ff;
+                color: white;
+              "
+              type="submit"
+              role="button"
+            >
+              PLAY
+          </button>
+          </form>
         </div>
       </div>
-      <a
-        class="carousel-control-prev mundur"
-        href="#carouselExampleIndicators"
-        role="button"
-        data-bs-slide="prev"
-      >
-        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-        <span class="visually-hidden">Previous</span>
-      </a>
-      <a
-        class="carousel-control-next maju"
-        href="#carouselExampleIndicators"
-        role="button"
-        data-bs-slide="next"
-      >
-        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-        <span class="visually-hidden">Next</span>
-      </a>
     </div>
 
     <script

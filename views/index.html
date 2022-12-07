@@ -37,7 +37,33 @@
 
     <h4 class="lirik">Lirik</h4>
     <div class="classLirik sc3" id="isiLirik">
-      Jika lirik tidak cocok, masukkan nama artis dan judul lagu
+      <% if (lyrics != "") { %>
+        <div id="ly-temp">
+        </div>
+        <script>
+          document.getElementById("ly-temp").innerHTML = decodeURIComponent(`<%= lyrics %>`)
+        </script>
+        <script src="https://genius.com/songs/<%= id %>/embed.js"></script>
+         <% } else { %> 
+          Lirik tidak ditemukan<br/>Masukkan judul secara manual<br /><br />
+          <form>
+            <label for="manual" class="d-block text-center">Judul :</label
+            ><input
+              class="d-block mx-auto text-start"
+              style="font-size: 18px"
+              type="text"
+              id="manual"
+              name="manual"
+            /><button
+              id="cariManual"
+              onclick="searchLirik()"
+              type="button"
+              class="btn btn-primary border-0 d-block mx-auto mt-2"
+            >
+              <b>Search</b>
+            </button>
+          </form>
+      <% } %>
     </div>
     <hr class="pemisah" />
     <div class="classCari" id="cariGan"></div>
@@ -45,9 +71,9 @@
     <!-- Lirik -->
     <script src="./index.js"></script>
     <script>
-      document.addEventListener("DOMContentLoaded", function () {
-        getLirik();
-      });
+      // document.addEventListener("DOMContentLoaded", function () {
+      //   getLirik();
+      // });
     </script>
 
     <script
